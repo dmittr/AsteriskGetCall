@@ -58,7 +58,7 @@ $stmt = $pdo->query($QUERY);
 $ARR=[];
 $DOWNLOAD=false;
 while ($row = $stmt->fetch()){
-	if ((!empty($_REQUEST['file']))($_REQUEST['file']==$row['recordingfile'])){
+	if ((!empty($_REQUEST['file'])) && ($_REQUEST['file']==$row['recordingfile'])){
 		$DOWNLOAD=$conf["recordpath"]."/".str_replace("-", "/", $_REQUEST['date'])."/".$row['recordingfile'];
 		$FILENAME=$row['recordingfile'];
 	}
