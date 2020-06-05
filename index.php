@@ -26,10 +26,6 @@ if (!isset($_REQUEST['num'])){
 	die ("EMPTY NUM");
 }
 
-if (!preg_match("/%?[0-9]*/", $_REQUEST['num'])){
-	die ("WORNG NUM FORMAT");
-}
-
 if (!isset($conf['tokens'][$_REQUEST['token']])){
 	die ("WORNG TOKEN");
 }
