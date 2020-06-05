@@ -47,7 +47,13 @@ $opt = [
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
 $pdo = new PDO("mysql:host=".$conf["DBHOST"].";dbname=".$conf["DBNAME"].";charset=utf8", $conf["DBUSER"], $conf["DBPASS"],$opt);
-$QUERY="SELECT * FROM cdr WHERE `calldate` like '".$_REQUEST['date']."%' and ( `cnum` like '".$_REQUEST['num']."' or `src` like '".$_REQUEST['num']."' ) ";
+
+$QUERY="SELECT * FROM cdr WHERE `calldate` like '".$_REQUEST['date']."%' and ( 
+	`cnum` like '".$_REQUEST['num']."' or 
+	`src` like '".$_REQUEST['num']."' or 
+	`dst` like '".$_REQUEST['num']."' 
+) ";
+
 $stmt = $pdo->query($QUERY);
 $ARR=[];
 $DOWNLOAD=false;
